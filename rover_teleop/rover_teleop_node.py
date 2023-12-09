@@ -27,11 +27,12 @@ class RoverTeleopNode(Node):
             self.send_msg = True
             self.create_dummy_node()
             print("X was pressed and executed")
-
-        elif msg.buttons[1] == 1 and self.dummyNode is not None:  
+            
+    # Changed the termination button from 'B' to 'Y' by Salman.
+        elif msg.buttons[3] == 1 and self.dummyNode is not None:  
             self.send_msg = False
             self.destroy_dummy_node()
-            print("B was pressed and executed")
+            print("Y was pressed and Node Destroyed")
 
         if self.send_msg:
             self.publish_twist_msg(msg)
